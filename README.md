@@ -1,4 +1,5 @@
-# Code for CISC/CMPE 327 Software Quality Assurance Course
+# CMPE 327
+Code for CISC/CMPE 327 Software Quality Assurance Course
 
 [![](https://github.com/vacer25/CMPE-327/workflows/Master%20Test/badge.svg)](https://github.com/vacer25/CMPE-327/actions)
 
