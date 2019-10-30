@@ -29,4 +29,5 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test frontend with custom system test script
       run: |
-        system-test-frontend.bat
+        cd system-test
+        python system_test_runner.py ../src/frontend.py -d
