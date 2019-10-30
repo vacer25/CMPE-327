@@ -1,5 +1,4 @@
-# CMPE-327
-Code for ELEC 327 Software Quality Assurance Course
+# Code for CISC/CMPE 327 Software Quality Assurance Course
 
 [![](https://github.com/vacer25/CMPE-327/workflows/Master%20Test/badge.svg)](https://github.com/vacer25/CMPE-327/actions)
 
