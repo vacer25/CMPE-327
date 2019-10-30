@@ -29,3 +29,9 @@ If everything goes well, you shoud get this:
 
 <img src="docs/example_testcases_all_passed.png" alt="Example Testcases All Passed.png"/>
 
+### For help:
+        python system_test_runner.py -h
+
+- More info will be added to this document in the near future
+- Feel free to create an issue if anything does not make sense
+- Pull requests welcome
