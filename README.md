@@ -78,12 +78,12 @@ These folders will be automatically found, just make sure to save the above file
 ### Command line options:
 Usage: `system_test_runner.py [-h] [-c #] [-d] scriptToTestFileName`
 
-Required:
+#### Required:
 
   `scriptToTestFileName`</br>
   The path & name of the script to be tested, can be relative
 
-Optional:
+#### Optional:
 
   `-h`</br>
   Show this help message and exit
