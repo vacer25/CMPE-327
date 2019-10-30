@@ -64,6 +64,7 @@ This behaviour is overridden if:
 ## Adding test cases:
 
 For each requirement, create a `Rx` folder in the `system-test` folder when x is the requirement number.
+
 For each test case of the requirement, create a `Ty` folder in the `Rx` folder when y is the test case number.
 
 Each test case folder must contain three files:
@@ -72,6 +73,8 @@ Each test case folder must contain three files:
 - `RxTy.out.expected.txt` or `none.console.expected.txt` containing the expected contents of the transaction summary file
 
 For generating the expected files, it is recommended to look at the default example test cases in this repository.
+
+These folders will be automatically found, just make sure to save the above files before re-running the test script.
 
 ### Command line options:
 Usage: `system_test_runner.py [-h] [-c #] [-d] scriptToTestFileName`
