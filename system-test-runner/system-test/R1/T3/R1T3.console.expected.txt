@@ -1,0 +1,2 @@
+Welcome!
+> Enter mode (machine/agent): Error: Valid accounts list file not found
