@@ -166,7 +166,7 @@ def main():
 
     # Counter values
     testsRan = 0
-    testsSkipped = 0
+    skippedTests = 0
     passedTests = 0
     failedTests = 0
 
@@ -254,7 +254,7 @@ def main():
                 print_error_message(Strings.ERROR_NO_INPUT_FILE + inputFileName + ', ' + Strings.ERROR_SKIPPING_TEST_CASE)
 
                 # Skip this test case
-                testsSkipped = testsSkipped + 1
+                skippedTests = skippedTests + 1
                 continue
 
             # ======================== RUN TEST CASE ========================
@@ -342,10 +342,10 @@ def main():
     # ======================== PRINT RESULTS SUMMARY & EXIT ========================
 
     # Once all tests are done, print statistics
-    print_test_statistics(testsRan, testsSkipped, passedTests, failedTests)
+    print_test_statistics(testsRan, skippedTests, passedTests, failedTests)
 
-    # Exit with code 0 if all tests passed, otherwise with 1
-    sys.exit(0 if failedTests == 0 else 1)
+    # Exit with code 0 if all tests were run and passed, otherwise with 1
+    sys.exit(0 if (failedTests + skippedTests) == 0 else 1)
 
 # ======================== RUN ========================
 
