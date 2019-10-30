@@ -6,7 +6,7 @@ Code for ELEC 327 Software Quality Assurance Course
 ## Custom system testing script
 This project shows how to preform system testing of a python script without using pytest
 
-The [system-test-runner.py](system-test/system-test-runner.py) script is designed for the ELEC 327 frontend system testing assignment and handles lots of special cases that might be useful for the different test cases required.
+The [system_test_runner.py](system-test/system_test_runner.py) script is designed for the ELEC 327 frontend system testing assignment and handles lots of special cases that might be useful for the different test cases required.
 
 ### To install:
 
