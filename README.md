@@ -63,8 +63,7 @@ This behaviour is overridden if:
 
 ## Adding test cases:
 
-For each requirement, create a `Rx` folder in the `system-test` folder when x is the requirement number.
-
+For each requirement, create a `Rx` folder in the `system-test` folder when x is the requirement number.</br>
 For each test case of the requirement, create a `Ty` folder in the `Rx` folder when y is the test case number.
 
 Each test case folder must contain three files:
