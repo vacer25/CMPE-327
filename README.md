@@ -94,7 +94,6 @@ Optional:
   `-d`</br>
   Set to automatically delete generated output files after test case is done, if this is not set all the generated output files are kept
 
-
-- More info will be added to this document in the near future
+### Misc.
 - Feel free to create an issue if something does not make sense
 - Pull requests welcome
