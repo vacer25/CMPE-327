@@ -22,7 +22,7 @@ The [system_test_runner.py](system-test/system_test_runner.py) script is designe
 
 - Cross-platform:</br>
 
-        cd system-tests
+        cd system-test
         python system_test_runner.py ../src/frontend.py
 
 If everything goes well, you shoud get this:
