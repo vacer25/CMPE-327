@@ -66,8 +66,8 @@ Note that the line endings (`\r\n` or `\n`) are not ignored by the comparison. T
 
 ## Adding test cases:
 
-For each requirement, create a `Rx` folder in the `system-test` folder when x is the requirement number.</br>
-For each test case of the requirement, create a `Ty` folder in the `Rx` folder when y is the test case number.
+For each requirement, create a `Rx` folder in the `system-test` folder where x is the requirement number.</br>
+For each test case of the requirement, create a `Ty` folder in the `Rx` folder where y is the test case number.
 
 Each test case folder must contain three files:
 - `RxTy.input.txt` containing the console input lines (each on each own line)
