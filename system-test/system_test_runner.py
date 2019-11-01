@@ -1,6 +1,9 @@
+#!/usr/bin/python3
+
 # ======================== IMPORTS ========================
 
 import os                                       # For checking if files exist
+import re                                       # Fore removing ANSI sequences
 import sys                                      # For exiting with return code
 import difflib                                  # For getting differences in files
 import filecmp                                  # For comparing if files are the same
@@ -9,7 +12,23 @@ from enum import Enum                           # For enum helper classes
 from subprocess import run, PIPE, DEVNULL       # For running frontend script
 from colorama import init, Fore, Back, Style    # For coloured console output
 
+useColorama = True
+try:
+    from colorama import init, Fore, Style
+except:
+    useColorama = False
+
 # ======================== CONSTANTS ========================
+
+# Terminal output colours
+ALL_OFF =           '\033[0m' if not useColorama else Style.RESET_ALL
+BOLD =              '\033[1m' if not useColorama else Style.BRIGHT
+FG_CYAN =           '\033[36m' if not useColorama else Fore.CYAN
+FG_RED =            '\033[31m' if not useColorama else Fore.RED
+FG_GREEN =          '\033[32m' if not useColorama else Fore.GREEN
+FG_YELLOW =         '\033[33m' if not useColorama else Fore.YELLOW
+FG_BLUE =           '\033[34m' if not useColorama else Fore.BLUE
+FG_MAGENTA =        '\033[35m' if not useColorama else Fore.MAGENTA
 
 # Helper class containing all the messages that will be printed out
 class Strings():
@@ -58,6 +77,17 @@ class TestResult(Enum):
 
 # The commad to run for executing the script to test
 FRONTEND_COMMAND = ['cmd', '/c', 'python']
+
+# Regex for removing ANSI sequences (for coloured output) from console output
+# This is required to save console output as plain text into files
+# From: https://stackoverflow.com/a/14693789
+ansi_escape = re.compile(r'''
+    \x1B    # ESC
+    [@-_]   # 7-bit C1 Fe
+    [0-?]*  # Parameter bytes
+    [ -/]*  # Intermediate bytes
+    [@-~]   # Final byte
+''', re.VERBOSE)
 
 # The path & name of the script to be tested
 scriptToTestFileName = None
@@ -352,7 +382,8 @@ def main():
 if __name__== "__main__":
 
     # Initialize terminal colours
-    init(autoreset=True)
+    if(useColorama):
+        init()
 
     # Setup arguments parser
     parser = argparse.ArgumentParser()
