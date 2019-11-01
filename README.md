@@ -18,6 +18,7 @@ The [system_test_runner.py](system-test/system_test_runner.py) script is designe
         pip install -r requirements.txt
 
 ### Basic usage:</br>
+In root folder, run:
 - Windows:</br>
 
         system-test-frontend.bat
@@ -61,6 +62,8 @@ This behaviour is overridden if:
 - The test case folder contails a local `valid_accounts.txt` file, in this case the local file is used.
 - The test case folder contails a local `.no_valid_accounts` file, in this case a non-existant file is used to simulate the valid account list file not existing.
 
+Note that the line endings (`\r\n` or `\n`) are not ignored by the comparison. Therefore, make sure either to create the expected output files on the same OS as running the test cases, or convert them (e.g with `dos2unix` to convert expected files generated on Windows (like in this repository) to linux line endings).
+
 ## Adding test cases:
 
 For each requirement, create a `Rx` folder in the `system-test` folder when x is the requirement number.</br>
@@ -95,5 +98,7 @@ Usage: `system_test_runner.py [-h] [-c #] [-d] scriptToTestFileName`
   Set to automatically delete generated output files after test case is done, if this is not set all the generated output files are kept
 
 ### Misc.
+This code is tested on Windows 10 and Linux 4.4.0-92-generic only
+
 - Feel free to create an issue if something does not make sense
 - Pull requests welcome
