@@ -4,7 +4,7 @@ Code for CISC/CMPE 327 Software Quality Assurance Course
 [![](https://github.com/vacer25/CMPE-327/workflows/Master%20Test/badge.svg)](https://github.com/vacer25/CMPE-327/actions)
 
 ## Custom system testing script
-This project shows how to preform system testing of a python script without using pytest
+This project shows how to preform system testing of a python script without using `pytest`
 
 The [system_test_runner.py](system-test/system_test_runner.py) script is designed for the ELEC 327 frontend system testing assignment and handles lots of special cases that might be useful for the different test cases required.
 
@@ -49,27 +49,28 @@ The [system_test_runner.py](system-test/system_test_runner.py) script recursivel
        
 For each `system-test/Rx/Ty` folder, this script will:
 
-1. Run the frontend script being tested, passing the appropriate valid accounts file (as described below) and transaction summary file as `RxTy.out.actual.txt`
-2. Pipe the inputs from the `RxTy.input.txt` file (line-by-line) into the front-end application
-3. Save all console output to the `RxTy.console.actual.txt` file
-4. Compare the `RxTy.console.actual.txt` file to the `RxTy.console.expected.txt` file
-5. If any lines differ, indicate that this test failed and output all lines that differ to the console
-6. Compare the `RxTy.out.actual.txt` file to the `RxTy.out.expected.txt` file if it exists or verify that no output file was created if `none.console.expected.txt` exists in the current test case folder
-7. If any lines differ, indicate that this test failed and output all lines that differ to the console
+1. Check if this test case needs to be run (if `-f` option is not used this is always true)
+2. Run the frontend script being tested, passing the appropriate valid accounts file (as described below) and transaction summary file as `RxTy.out.actual.txt`
+3. Pipe the inputs from the `RxTy.input.txt` file (line-by-line) into the front-end application
+4. Save all console output to the `RxTy.console.actual.txt` file
+5. Compare the `RxTy.console.actual.txt` file to the `RxTy.console.expected.txt` file
+6. If any lines differ, indicate that this test failed and output all lines that differ to the console
+7. Compare the `RxTy.out.actual.txt` file to the `RxTy.out.expected.txt` file if it exists or verify that no output file was created if `none.console.expected.txt` exists in the current test case folder
+8. If any lines differ, indicate that this test failed and output all lines that differ to the console
 
 For each test case, the default valid accounts list file is the common one in the `system-test` folder.
 This behaviour is overridden if:
 - The test case folder contails a local `valid_accounts.txt` file, in this case the local file is used.
 - The test case folder contails a local `.no_valid_accounts` file, in this case a non-existant file is used to simulate the valid account list file not existing.
 
-Note that the line endings (`\r\n` or `\n`) are not ignored by the comparison. Therefore, make sure either to create the expected output files on the same OS as running the test cases, or convert them (e.g with `dos2unix` to convert expected files generated on Windows (like in this repository) to linux line endings).
+Note that trailing newlines and line endings (`\r\n` on Windows or `\n` otherwise) are not ignored by the comparison. Therefore, make sure either to create the expected output files on the same OS as running the test cases, or convert them (e.g with `dos2unix` to convert expected files generated on Windows (like in this repository) to linux line endings).
 
 ## Adding test cases:
 
 For each requirement, create a `Rx` folder in the `system-test` folder where x is the requirement number.</br>
 For each test case of the requirement, create a `Ty` folder in the `Rx` folder where y is the test case number.
 
-Each test case folder must contain three files:
+Each test case folder must contain at least three files:
 - `RxTy.input.txt` containing the console input lines (each on each own line)
 - `RxTy.console.expected.txt` containing the expected console output
 - `RxTy.out.expected.txt` or `none.console.expected.txt` containing the expected contents of the transaction summary file
@@ -78,15 +79,15 @@ For generating the expected files, it is recommended to look at the default exam
 
 These folders will be automatically found, just make sure to save the above files before re-running the test script.
 
-### Command line options:
-Usage: `system_test_runner.py [-h] [-c #] [-d] scriptToTestFileName`
+## Command line options:
+Usage: `system_test_runner.py scriptToTestFileName [-h] [-c #] [-d] [-p {all,failed,none}] [-t test [test ...]]`
 
-#### Required:
+### Required:
 
   `scriptToTestFileName`</br>
   The path & name of the script to be tested, can be relative
 
-#### Optional:
+### Optional:
 
   `-h`</br>
   Show this help message and exit
@@ -97,8 +98,17 @@ Usage: `system_test_runner.py [-h] [-c #] [-d] scriptToTestFileName`
   `-d`</br>
   Set to automatically delete generated output files after test case is done, if this is not set all the generated output files are kept
 
-### Misc.
-This code is tested on Windows 10 and Linux 4.4.0-92-generic only
+  `-p {all,failed,none}`</br>
+  Set the printout mode, valid modes are:</br>
+  `all`: All the test case results are printed</br>
+  `failed`: Only results of failed test cases are printed</br>
+  `none`: Nothing is printed (this mode is for mutation testing)
 
-- Feel free to create an issue if something does not make sense
+  `-t test [test ...]`</br>
+  Set names (RxTy) of test cases to run, if this is not set all the test cases will be run
+
+## Misc.
+This code is tested on Windows 10, Ubuntu 16.04, and and Linux 4.4.0-92-generic only
+
+- Please create an issue if something does not make sense / does not work
 - Pull requests welcome
