@@ -28,7 +28,7 @@ In root folder, run:
         cd system-test
         python system_test_runner.py ../src/frontend.py
 
-If everything goes well, you shoud get this output for the example test cases included in this repository:
+If everything goes well, you should get this output for the example test cases included in this repository:
 
 <img src="docs/example_testcases_all_passed.png" alt="Example Testcases All Passed"/>
 
@@ -43,7 +43,7 @@ The structure of this folder must be as shown below:
 
 <img src="docs/folder_structure.png" alt="Folder Structure"/>
 
-### Testing precedure:
+### Testing procedure:
 
 The [system_test_runner.py](system-test/system_test_runner.py) script recursively traverses the `system-test` folder.
        
@@ -59,9 +59,9 @@ For each `system-test/Rx/Ty` folder, this script will:
 8. If any lines differ, indicate that this test failed and output all lines that differ to the console
 
 For each test case, the default valid accounts list file is the common one in the `system-test` folder.
-This behaviour is overridden if:
-- The test case folder contails a local `valid_accounts.txt` file, in this case the local file is used.
-- The test case folder contails a local `.no_valid_accounts` file, in this case a non-existant file is used to simulate the valid account list file not existing.
+This behavior is overridden if:
+- The test case folder contains a local `valid_accounts.txt` file, in this case the local file is used.
+- The test case folder contains a local `.no_valid_accounts` file, in this case a non-existent file is used to simulate the valid account list file not existing.
 
 Note that trailing newlines and line endings (`\r\n` on Windows or `\n` otherwise) are not ignored by the comparison. Therefore, make sure either to create the expected output files on the same OS as running the test cases, or convert them (e.g with `dos2unix` to convert expected files generated on Windows (like in this repository) to linux line endings).
 
