@@ -2,6 +2,8 @@
 Code for CISC/CMPE 327 Software Quality Assurance Course
 
 [![](https://github.com/vacer25/CMPE-327/workflows/Master%20Test/badge.svg)](https://github.com/vacer25/CMPE-327/actions)
+[![HitCount](http://hits.dwyl.io/vacer25/CMPE-327.svg)](http://hits.dwyl.io/vacer25/CMPE-327)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) 
 
 ## Custom system testing script
 This project shows how to preform system testing of a python script without using `pytest`
