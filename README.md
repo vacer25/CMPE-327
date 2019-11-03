@@ -38,7 +38,7 @@ If everything goes well, you should get this output for the example test cases i
 
 ### Folder structure:
 
-For our own testing framework to automatically find all test cases, a set folder structure is used.<br>
+For the testing framework to automatically find all test cases, a set folder structure *must* be used.<br>
 The source code is in the `src` folder.<br>
 The system tests are in the `system-test` folder.
 
