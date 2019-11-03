@@ -38,14 +38,18 @@ If everything goes well, you should get this output for the example test cases i
 
 ### Folder structure:
 
-The source code is in the `src` folder
+For our own testing framework to automatically find all test cases, a set folder structure is used.<br>
+The source code is in the `src` folder.<br>
+The system tests are in the `system-test` folder.
 
-The system tests are in the `system-test` folder</br>
-The structure of this folder must be as shown below:
+The structure of these folders is shown below:
 
 <img src="docs/folder_structure.png" alt="Folder Structure"/>
 
 ### Testing procedure:
+
+For running all the requirements tests, the [system-test-frontend.bat](system-test-frontend.bat) script is used in either the root or system-test folder. This is a simple helper script that calls the actual test runner script (explained below) with the [frontend.py](src/frontend.py) script as the testing target.
+
 
 The [system_test_runner.py](system-test/system_test_runner.py) script recursively traverses the `system-test` folder.
        
